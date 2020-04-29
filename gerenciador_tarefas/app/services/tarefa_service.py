@@ -8,3 +8,8 @@ def cadastrar_tarefa(tarefa):
         data_expiracao=tarefa.data_expiracao,
         prioridade=tarefa.prioridade
     )
+
+
+def listar_tarefas():
+    return Tarefa.objects.all()
+#    return Tarefa.objects.order_by("prioridade") #Para ordenar por prioridade

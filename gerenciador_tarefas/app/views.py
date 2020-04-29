@@ -5,8 +5,8 @@ from .services import tarefa_service
 
 
 def listar_tarefas(request):
-    nome_tarefa = "Assistir vídeo 1 do Curso de Python e Django"
-    return render(request, 'tarefas/listar_tarefas.html', {'nome_tarefa': nome_tarefa})
+    tarefas = tarefa_service.listar_tarefas()
+    return render(request, 'tarefas/listar_tarefas.html', {'tarefas': tarefas})
 
 
 def cadastrar_tarefa(request):
