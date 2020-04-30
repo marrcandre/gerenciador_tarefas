@@ -14,6 +14,7 @@
     <p class="card-text">{{tarefa.descricao}}</p>
     <hr>
     <a href="{% url 'editar_tarefa' tarefa.id %}">Alterar Tarefa</a>
+    <a href="{% url 'remover_tarefa' tarefa.id %}">Remover Tarefa</a>
   </div>
 </div>
 {% endfor %}
