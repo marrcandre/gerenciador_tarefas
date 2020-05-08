@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load meus_filtros %}
+
+{% block conteudo %}
+<h2>Login</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {% for message  in messages %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endfor %}
+    <div class="form_group">
+        {{form_login.username.errors}}
+        <label>Nome do usuário: </label>
+        {{ form_login.username|addclass:'form-control'}}
+    </div>
+    <div class="form_group">
+        {{form_login.password.errors}}
+        <label>Senha: </label>
+        {{ form_login.password|addclass:'form-control'}}
+    </div>
+    <div class="form_group">
+        <input type="submit" value="Entrar" class="btn btn-primary">
+    </div>
+</form>
+{% endblock conteudo %}
+
