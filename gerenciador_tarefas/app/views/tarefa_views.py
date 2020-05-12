@@ -7,7 +7,7 @@ from ..services import tarefa_service
 
 @login_required
 def listar_tarefas(request):
-    tarefas = tarefa_service.listar_tarefas()
+    tarefas = tarefa_service.listar_tarefas(request.user)
     return render(request, 'tarefas/listar_tarefas.html', {'tarefas': tarefas})
 
 
@@ -24,7 +24,8 @@ def cadastrar_tarefa(request):
                             titulo=titulo,
                             descricao=descricao,
                             data_expiracao=data_expiracao,
-                            prioridade=prioridade
+                            prioridade=prioridade,
+                            usuario=request.user,
                             )
             tarefa_service.cadastrar_tarefa(tarefa_nova)
             return redirect('listar_tarefas')
@@ -46,7 +47,8 @@ def editar_tarefa(request, id):
                         titulo=titulo,
                         descricao=descricao,
                         data_expiracao=data_expiracao,
-                        prioridade=prioridade
+                        prioridade=prioridade,
+                        usuario=request.user,
                         )
         tarefa_service.editar_tarefa(tarefa_bd, tarefa_nova)
         return redirect('listar_tarefas')
