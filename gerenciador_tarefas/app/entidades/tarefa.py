@@ -38,12 +38,10 @@ class Tarefa():
     def prioridade(self, prioridade):
         self.__prioridade = prioridade
 
-
     @property
     def usuario(self):
         return self.__usuario
 
     @usuario.setter
-    def prioridade(self, usuario):
+    def usuario(self, usuario):
         self.__usuario = usuario
-

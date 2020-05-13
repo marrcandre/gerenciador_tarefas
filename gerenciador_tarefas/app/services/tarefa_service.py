@@ -12,8 +12,8 @@ def cadastrar_tarefa(tarefa):
 
 
 def listar_tarefas(usuario):
-    #return Tarefa.objects.all()
-    return Tarefa.objects.filter(usuario=usuario).order_by("prioridade") #Para ordenar por prioridade
+    # return Tarefa.objects.all()
+    return Tarefa.objects.filter(usuario=usuario)
 
 
 def lista_tarefa_id(id):
@@ -26,6 +26,7 @@ def editar_tarefa(tarefa_bd, tarefa_nova):
     tarefa_bd.data_expiracao = tarefa_nova.data_expiracao
     tarefa_bd.prioridade = tarefa_nova.prioridade
     tarefa_bd.save(force_update=True)
+
 
 def remover_tarefa(tarefa_bd):
     tarefa_bd.delete()
